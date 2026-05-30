@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beer Portfolio Optimisation - Pratham Soni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-screen-label="Project · Beer Portfolio">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 01 / Selected Work · Business Analytics</div>
+    <h1 class="case-title">Beer Portfolio<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">Optimisation.</em></h1>
+    <p class="case-deck">
+      A US national distributor: 150 products, 7 regions, 5 channels, &minus;0.4% revenue
+      growth over two years. A Power BI narrative that unpacked <em>why</em> - and quantified
+      an $80k profit lever hiding inside the discount budget.
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Course</div><div class="v">UNSW · INFS5700</div></div>
+    <div><div class="k">Year</div><div class="v">2026</div></div>
+    <div><div class="k">Tools</div><div class="v">Power BI, DAX, Python (EDA)</div></div>
+    <div><div class="k">Role</div><div class="v">Analyst &amp; storyteller</div></div>
+  </div>
+</header>
+
+<main class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The problem</h2>
+    <p>
+      A national US beer distributor with 150 products across 7 regions and 5 sales channels
+      had flat revenue growth of &minus;0.4% over two years. Management had no clear view of
+      which products were actually driving profitability versus volume, which regions were
+      shifting in their preferences, or whether decisions around discounting and channel mix
+      were helping or hurting the business.
+    </p>
+    <p>
+      The brief reduced to one deceptively simple question:
+      <em>how should the company optimise its beer portfolio?</em>
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>Approach</h2>
+    <p>
+      The analysis was structured around the four analytics types - descriptive, diagnostic,
+      predictive, prescriptive - so every finding built logically toward a recommendation
+      rather than landing as a disconnected data dump.
+    </p>
+    <ul>
+      <li>Started with EDA in Python before touching Power BI - verifying distributions, YoY growth by family and region, BCG classification, stress-testing every claim before it became a slide</li>
+      <li>Built a star-schema model in Power BI on top of 11,000 transactions, with DAX measures for revenue, profit, margin, YoY growth, discount impact, and BCG class</li>
+      <li>Authored the dashboard as a five-page narrative - each page answering one question and building tension toward the recommendations on page five</li>
+    </ul>
+    <div class="carousel" aria-label="Power BI dashboard screenshots">
+      <div class="carousel-frame">
+        <div class="carousel-track">
+          <div class="carousel-slide" data-caption="01 · Business Overview"><img src="/assets/Projects/Beer-Portfolio-1.png" alt="Star schema"><span class="label">Business Overview</span></div>
+          <div class="carousel-slide" data-caption="02 · Product Overview"><img src="/assets/Projects/Beer-Portfolio-2.png" alt="Executive overview"><span class="label">Product Overview</span></div>
+          <div class="carousel-slide" data-caption="03 · Discount and Channel Analysis"><img src="/assets/Projects/Beer-Portfolio-3.png" alt="BCG matrix"><span class="label">Discount and Channel Analysis</span></div>
+          <div class="carousel-slide" data-caption="04 · Regional Family Trends"><img src="/assets/Projects/Beer-Portfolio-4.png" alt="Channel × product"><span class="label">Regional Family Trends</span></div>
+          <div class="carousel-slide" data-caption="05 · Recommendations - Promote"><img src="/assets/Projects/Beer-Portfolio-5.png" alt="Discount waterfall"><span class="label">Recommendations - Promote</span></div>
+          <div class="carousel-slide" data-caption="06 · Recommendations - Promote"><img src="/assets/Projects/Beer-Portfolio-6.png" alt="Regional trends"><span class="label">Recommendations - Promote</span></div>
+          <div class="carousel-slide" data-caption="07 · Recommendations - Relocate"><img src="/assets/Projects/Beer-Portfolio-7.png" alt="YoY by family"><span class="label">Recommendations - Relocate</span></div>
+          <div class="carousel-slide" data-caption="08 · Recommendations - Phase out"><img src="/assets/Projects/Beer-Portfolio-8.png" alt="Recommendations"><span class="label">Recommendations - Phase out</span></div>
+        </div>
+        <button class="carousel-btn" data-dir="prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-btn" data-dir="next" aria-label="Next slide">›</button>
+      </div>
+      <div class="carousel-meta">
+        <span class="carousel-caption"></span>
+        <span class="carousel-counter">01 / 08</span>
+      </div>
+      <div class="carousel-dots" role="tablist" aria-label="Slide navigation"></div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>Findings</h2>
+
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">0%</div>
+        <div class="desc">overlap between top 10 by units sold and top 10 by profit margin.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">64%</div>
+        <div class="desc">of all discount spend flowing through the lowest-margin channel (Supermarket, 37.3%).</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">$80,234</div>
+        <div class="desc">profit improvement quantified by reallocating discount toward Bar/Restaurant (45.1%).</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      "Top-selling products had zero overlap with top-margin products" - the single
+      sentence that re-framed the entire portfolio strategy conversation.
+    </div>
+
+    <h3 style="margin-top:24px;">1 - Volume and profitability are telling different stories</h3>
+    <p>The company was celebrating and investing in <em>busy</em> products, not <em>profitable</em> ones.</p>
+
+    <h3 style="margin-top:24px;">2 - Six out of ten families are shrinking</h3>
+    <p>Only Porter (+17.3%), IPA (+9.6%) and Wheat (+2.4%) are growing. Strong Ale lost 25.1% of revenue in a single year - declining in six out of seven regions.</p>
+
+    <h3 style="margin-top:24px;">3 - Discount and channel choice are the same problem</h3>
+    <p>Bar generates more revenue than high-discount Supermarket without giving a single dollar away in discounts. The discount line item and the channel mix line item were, in effect, the same lever pulled twice.</p>
+
+    <h3 style="margin-top:24px;">4 - Regional demand is shifting and being ignored</h3>
+    <p>Wheat doubled in the Mountain region (+100.1%). IPA is surging on the West Coast (+26.8%). The Southeast is transitioning from Ale (&minus;26.1%) to IPA (+13.4%). The data showed exactly where demand was heading; the portfolio had not responded.</p>
+
+    <h3 style="margin-top:24px;">5 - 37 products are classified as Dogs</h3>
+    <p>Together they generate $301,215 in profit - less than half what the 37 Stars generate ($604,457) from a similar number of products.</p>
+
+    <div class="media media-screenshot"><img src="/assets/Projects/Beer-Portfolio-Waterfall.png" alt="Discount leakage waterfall"></div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>Recommendations</h2>
+    <ul>
+      <li><strong>Promote</strong> 14 product–region–channel combinations - the highest-rated product in each region's two fastest-growing families, pushed through Bar &amp; Restaurant where margins are highest</li>
+      <li><strong>Reposition</strong> 3 products (8 Ball Stout, Bobo's Robust Porter, Over Ale) currently over-reliant on Supermarket - margin gap of +7.9% to +10.7% by switching channels</li>
+      <li><strong>Discontinue</strong> 7 products: 2 immediately (Orion Southern Star, Purple Haze - review &lt; 3.5, declining, near-zero contribution) and 5 phased out over 12 months (incl. Buffalo Bill's Stout &minus;45% YoY, Belzebuth &minus;34.3% YoY)</li>
+      <li><strong>Redirect</strong> the freed revenue to Stars - unlocking an additional $9,920 in profit on top of the $80k channel reallocation</li>
+    </ul>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>Limitations</h2>
+    <p style="margin-bottom: 16px;">
+      Acknowledging where the data ends and judgement begins - because a credible recommendation is one that names its own caveats.
+    </p>
+    <div class="limit-grid">
+      <div class="limit-card">
+        <span class="k">⚠ ELASTICITY</span>
+        <h4>No demand-elasticity data</h4>
+        <p>$80,234 is a theoretical upper bound. Customers who only buy through Supermarket discount may not follow a product to Bar - actual gain depends on volume retention through the channel shift.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ DIRECTION</span>
+        <h4>Correlation isn't causation</h4>
+        <p>Review scores correlate with revenue (r = 0.60), but bad reviews may be a <em>consequence</em> of bad placement. Some products flagged for discontinuation may actually be reposition candidates we missed.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ EXECUTION</span>
+        <h4>Regional pilots are directional</h4>
+        <p>Mountain Wheat at +100% is a real signal, but capturing it depends on distributor relationships, shelf access and local competition the dataset doesn't see.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ FRAMING</span>
+        <h4>BCG thresholds are relative</h4>
+        <p>Using portfolio median as the threshold means a "Dog" here might be a "Star" in a smaller portfolio. The classification is valid for prioritisation, not absolute judgement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">06</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">Technically</span>
+        <p>How to build a proper star schema, write filter-context-aware DAX, and use Python for EDA <em>before</em> committing to a visual narrative. The discipline of verifying every number from the raw data - rather than trusting the tool - carries forward into every project.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Analytically</span>
+        <p>The difference between describing data and diagnosing it. The zero-overlap finding came from asking the right question, not running the right chart. Always challenge the obvious interpretation before accepting it.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">As a storyteller</span>
+        <p>A dashboard nobody acts on is worthless, regardless of how technically correct it is. Structuring the analysis as a five-page narrative - tension, evidence, resolution - made the recommendations feel inevitable rather than arbitrary.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About limitations</span>
+        <p>Acknowledging what the data doesn't know is analytical maturity, not weakness. Management trusts an analyst more when they say "here is where the data ends and judgement begins."</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="../index.html#work">
+      <span class="k">← BACK</span>
+      <span class="v">All work</span>
+    </a>
+    <a href="clear-waters.html" class="next">
+      <span class="k">NEXT · 02</span>
+      <span class="v">Clear Waters →</span>
+    </a>
+  </nav>
+</main>
+
+<script src="../reveal.js"></script>
+<script src="../carousel.js"></script>
+</body>
+</html>

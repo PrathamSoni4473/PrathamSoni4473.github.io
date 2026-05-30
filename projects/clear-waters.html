@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clear Waters - Pratham Soni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-screen-label="Project · Clear Waters">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 02 / Selected Work · Computer Vision &amp; Sustainability</div>
+    <h1 class="case-title">Clear Waters:<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">Plastic, detected.</em></h1>
+    <p class="case-deck">
+      A full-stack platform - drone, mobile, web - that detects plastic in rivers,
+      maps the hotspots, and predicts where the trash will drift next. Built with
+      Mano for the REVA × Kyndryl hackathon.
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Context</div><div class="v">REVA × Kyndryl Hackathon</div></div>
+    <div><div class="k">Year</div><div class="v">2023</div></div>
+    <div><div class="k">Stack</div><div class="v">YOLOv8 · FastAPI · Flutter · Dropbox</div></div>
+    <div><div class="k">Result</div><div class="v">1st prize / 750 teams · 19 countries</div></div>
+  </div>
+</header>
+
+<main class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The problem</h2>
+    <p>
+      Plastic pollution in rivers is a growing environmental crisis, and there is
+      no scalable, automated way to <strong>detect, monitor, and predict</strong> the
+      location of plastic waste in waterways. Cleanup is slow, reactive, and
+      resource-intensive - crews show up after a complaint, after a flood, after
+      the trash has already drifted downstream.
+    </p>
+    <p>The platform tries to flip that into something proactive: watch the water for you, flag plastic in near-real-time, and forecast where it's heading.</p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>Walkthrough</h2>
+    <p>A short tour of the platform - web dashboard, Flutter mobile app, and the model's explanation panel.</p>
+    <div class="media media-video">
+      <iframe src="https://www.youtube.com/embed/8qQvO3Yhx_U?si=FNuJ5B0JsLB2-eDL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="media-grid" style="margin-top:32px;">
+      <div class="media media-screenshot"><img src="/assets/Projects/Plastic-detection-dashboard.png"><span class="label">Fig 01. Web dashboard map</span></div>
+      <div class="media media-screenshot"><img src="/assets/Projects/Plsatic-detection-History.png" alt="Discount leakage waterfall"><span class="label">Fig 02. Plastic Detection History</span></div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02b</span>From the hackathon</h2>
+    <p>Photos from REVA University, Bangalore - the grand finale weekend.</p>
+    <div class="carousel" aria-label="Hackathon photos">
+      <div class="carousel-frame">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="/assets/achievements/plastic-1.jpg"></div>
+          <div class="carousel-slide"><img src="/assets/achievements/plastic-2.jpg"></div>
+          <div class="carousel-slide"><img src="/assets/achievements/plastic-3.jpg"></div>
+        </div>
+        <button class="carousel-btn" data-dir="prev" aria-label="Previous photo">‹</button>
+        <button class="carousel-btn" data-dir="next" aria-label="Next photo">›</button>
+      </div>
+      <div class="carousel-meta">
+        <span class="carousel-caption"></span>
+        <span class="carousel-counter">01 / 05</span>
+      </div>
+      <div class="carousel-dots" role="tablist" aria-label="Photo navigation"></div>
+    </div>
+    <p style="margin-top: 20px; font-size: 15px;">
+      Read the press writeup:
+      <a href="https://www.heraldglobe.com/news/273962347/hackathon-on-plastic-free-rivers-with-ai-grand-finale-concludes-successfully-at-reva-university" target="_blank" rel="noopener">
+        Hackathon on Plastic-Free Rivers Grand Finale at REVA University → Herald Globe
+      </a>
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>The pipeline</h2>
+    <p>Five stages, end-to-end, from a frame on the water to a circle on a map.</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <span class="num">STEP 01</span>
+        <div>
+          <h4>Image capture &amp; upload</h4>
+          <p>Images come in via drone, Flutter mobile app (camera or gallery), or bulk Dropbox upload. The source is detected from image metadata so the right processing pipeline kicks in automatically.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 02</span>
+        <div>
+          <h4>Pre-processing</h4>
+          <p>Glare removal eliminates white reflections from the water surface. Segmentation masks out green land areas so the model only sees plastic in water. Applied to drone images only - detected via metadata.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 03</span>
+        <div>
+          <h4>Dual YOLO detection</h4>
+          <p><strong>Model 1 (YOLOv8x)</strong> trained on 2,800 Saigon River drone frames - top-down views, mostly white plastics. <strong>Model 2 (YOLOv8n)</strong> trained on 6,523 diverse global plastic images (various angles &amp; colours), reduced from 25,000 using VGG16 + PCA + K-Means clustering into 40 clusters. Results merged via DBSCAN, keeping the highest-confidence detections.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 04</span>
+        <div>
+          <h4>Storage &amp; API layer</h4>
+          <p>FastAPI handles real-time image processing and data retrieval. All images, counts, locations and metadata are stored in the user's personal Dropbox - structured folders + Excel sheets - with OAuth 2.0 tokens managing secure session handling.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 05</span>
+        <div>
+          <h4>Location &amp; drift prediction</h4>
+          <p>GPS metadata generates Google Maps links. A time-slider lets users predict future plastic drift using wind speed, wind direction, tide height, and wave period. Predicted points are snapped to the nearest water body using Vietnam geospatial data.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="media media-screenshot"><img src="/assets/Projects/Plsatic-detection-driftPrediction.png" ><span class="label">Fig 03: Drift Prediction</span></div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>Numbers</h2>
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">50.3%</div>
+        <div class="desc">mAP 50–95 on Phase 3 - the merged dual-YOLO ensemble.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">7+</div>
+        <div class="desc">model variants trained &amp; tested across the iteration cycle.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">6,523</div>
+        <div class="desc">curated training images for Model 2 - distilled from 25,000 raw, via VGG16 + PCA + K-Means into 40 clusters.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>The outcome</h2>
+    <p>
+      A full-stack platform combining a web dashboard, mobile app and ML pipeline
+      that detects, maps, predicts, and historically tracks plastic pollution in rivers.
+    </p>
+    <ul>
+      <li><strong>Interactive map</strong> - visual hotspots with DBSCAN clustering, directions to cleanup sites, and a drift-prediction slider</li>
+      <li><strong>History &amp; stats</strong> - full detection log in Dropbox with timestamps, counts, lat/long and image links; Power BI dashboard for trends</li>
+      <li><strong>Mobile app</strong> - Flutter, for field workers - upload images, see plastic counts instantly, jump to the location on Google Maps</li>
+      <li><strong>Scalable pipeline</strong> - handles single uploads or bulk drone batches via scheduled API runs; stationary vs moving plastic classified separately</li>
+    </ul>
+
+    <div class="callout">
+      The judges said the explanation module was what set us apart - accuracy gets
+      you to the demo; trust gets you adopted.
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">06</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">Two models, one decision</span>
+        <p>Single-model pipelines fail on edge cases the training set didn't see. Pairing a domain-specialist (drone, top-down) with a generalist (varied angles &amp; colours) and merging via DBSCAN was the cleanest way to get coverage without retraining one giant model.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Ship the explanation</span>
+        <p>Hackathons reward shipping, not architecture. We deliberately kept the vision model lean and put the polish into the explanation UI, the map, and the forecast overlay - decision-makers don't read loss curves; they read circles on a map.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Data &gt; model</span>
+        <p>Reducing 25,000 noisy images to 6,523 curated ones via clustering bought more accuracy than any architectural tweak we tried in Phase 3.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Shipping is the deadline</span>
+        <p>End-to-end - drone footage to a cleanup-team app - is harder than any one of its parts. The integration work (FastAPI ↔ Dropbox ↔ Flutter) was where most of the wins, and most of the bugs, actually lived.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="beer-portfolio.html">
+      <span class="k">← PREV · 01</span>
+      <span class="v">Beer Portfolio</span>
+    </a>
+    <a href="adaptive-learning.html" class="next">
+      <span class="k">NEXT · 03</span>
+      <span class="v">Adaptive Learning →</span>
+    </a>
+  </nav>
+</main>
+
+<script src="../reveal.js"></script>
+<script src="../carousel.js"></script>
+</body>
+</html>

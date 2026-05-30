@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Air Quality Forecasting - Pratham Soni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-screen-label="Project · Air Quality">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 04 / Selected Work · Time-Series ML</div>
+    <h1 class="case-title">Forecasting<br/>Mumbai's <em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">air.</em></h1>
+    <p class="case-deck">
+      A hybrid ensemble that decomposes the signal first and predicts what's left -
+      tested on 3+ years of multivariate AQI / PM2.5 / PM10 data from six Mumbai
+      monitoring stations, beating VAR, VARMA, and CEEMDAN baselines.
+    </p>
+    <p class="case-deck">
+      <strong>Read More about the publication <a href="https://ieeexplore.ieee.org/document/10346745" target="_blank">here</a>.</strong>
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Year</div><div class="v">Sept 2023</div></div>
+    <div><div class="k">Stack</div><div class="v">Python · STL · CNN-LSTM · RNN</div></div>
+    <div><div class="k">Targets</div><div class="v">AQI · PM2.5 · PM10</div></div>
+    <div><div class="k">Validation</div><div class="v">RMSE · MAPE · R²</div></div>
+  </div>
+</header>
+
+<main class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The problem</h2>
+    <p>
+      Air pollution is a critical public-health threat in densely populated cities like Mumbai -
+      whose air quality has at times surpassed Delhi's. Traditional statistical methods
+      (Vector Autoregression, VAR) struggle to forecast it accurately because the signal
+      is highly non-linear and tangled with complex temporal patterns.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>Approach</h2>
+    <p>
+      Multivariate time-series data - AQI, PM2.5, PM10 - from six Mumbai monitoring stations,
+      January 2020 through May 2023. To wrestle the non-linearity, the series was decomposed
+      using STL (Seasonal and Trend decomposition using Loess) into <em>trend</em>,
+      <em>seasonal</em>, and <em>residual</em> components - and then specialist learners
+      were trained per component.
+    </p>
+
+    <ul>
+      <li><strong>Trend model:</strong> CNN + LSTM stack - convolutional layers extract local patterns, LSTM captures long-range dependence</li>
+      <li><strong>Seasonal &amp; residual models:</strong> stacked RNN layers + Dense heads - good fit for periodic and short-cycle dynamics</li>
+      <li>Forecasts from the three component models are recombined via ensemble aggregation into a single AQI / PM2.5 / PM10 prediction</li>
+      <li>Validated against VAR, VARMA, and CEEMDAN baselines on RMSE, MAPE, R²</li>
+    </ul>
+
+    <div class="media-grid">
+      <div class="media media-screenshot"><img src="/assets/Projects/AQI-Model-Trend-prediction.png"><span class="label">Fig 01 · Trend Prediction</span></div>
+      <div class="media media-screenshot"><img src="/assets/Projects/AQI-ModelForecast.png"><span class="label">Fig 02 · Model Forecast</span></div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>Findings</h2>
+
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">0.89</div>
+        <div class="desc">R² on AQI · RMSE 13.68 - the strongest target.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">0.86</div>
+        <div class="desc">R² on PM2.5 · RMSE 5.91 - stable across stations.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">0.75</div>
+        <div class="desc">R² on PM10 · RMSE 16.52 - the noisier target, still well-fit.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      Decomposition isn't preprocessing - it's giving each learner a problem it knows how to solve.
+    </div>
+
+    <p style="margin-top: 24px;">
+      The STL-based ensemble outperformed VAR, VARMA, and CEEMDAN-decomposed alternatives
+      on every target. Trend, seasonal, and residual components were each well-fit and
+      generalised cleanly to held-out test data.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>Why it matters</h2>
+    <p>
+      Reliable short-horizon AQI forecasts give policymakers and environmental agencies
+      a real lever: school-day advisories, traffic-flow nudges, construction-site
+      shutdown thresholds. The work was framed throughout as a decision-support tool,
+      not a leaderboard exercise.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">Decomposition is the lever</span>
+        <p>Breaking complex series into trend / seasonal / residual reduced prediction error far more than swapping in a fancier single model on raw data.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Match the architecture to the component</span>
+        <p>CNN-LSTM for trends, stacked RNNs for seasonality. Forcing one architecture across all components is leaving accuracy on the table.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Pre-decomposition lessons mislead</span>
+        <p>RNNs looked dominant on raw data - but post-decomposition, the hybrid ensemble was the most accurate final solution. Don't pick the model before you understand the signal.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Report two metrics, always</span>
+        <p>Pair R² with RMSE so non-statisticians can read the chart. R² alone hides bias; RMSE alone hides variance explained.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="adaptive-learning.html">
+      <span class="k">← PREV · 03</span>
+      <span class="v">Adaptive Learning</span>
+    </a>
+    <a href="disaster-tweets.html" class="next">
+      <span class="k">NEXT · 05</span>
+      <span class="v">Disaster Tweets →</span>
+    </a>
+  </nav>
+</main>
+
+<script src="../reveal.js"></script>
+</body>
+</html>

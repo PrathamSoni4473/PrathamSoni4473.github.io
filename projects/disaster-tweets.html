@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Disaster Tweet Classification - Pratham Soni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-screen-label="Project · Disaster Tweets">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 05 / Selected Work · NLP &amp; Deep Learning</div>
+    <h1 class="case-title">Disaster Tweet<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">Classification.</em></h1>
+    <p class="case-deck">
+      53,531 tweets, four embedding spaces, three architectures - and a hybrid ensemble
+      that lifted accuracy to 89.12%, beating every individual model in the bake-off.
+    </p>
+    <p class="case-deck">
+      <strong>Read More about the publication <a href="https://ieeexplore.ieee.org/document/10353510" target="_blank">here</a>.</strong>
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Year</div><div class="v">Oct 2023</div></div>
+    <div><div class="k">Source</div><div class="v">CrisisNLP · 53,531 tweets</div></div>
+    <div><div class="k">Stack</div><div class="v">BERT · XLNet · GloVe · FastText · LSTM</div></div>
+    <div><div class="k">Result</div><div class="v">89.12% accuracy (ensemble)</div></div>
+  </div>
+</header>
+
+<main class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The problem</h2>
+    <p>
+      Twitter is a real-time signal during natural disasters - but most of what's
+      said about a disaster isn't actually <em>about</em> one. Sarcasm, news
+      commentary, meme references, and metaphorical use of disaster vocabulary
+      swamp the genuine eyewitness reports. Keyword filters fail; emergency
+      responders need a model that reads context, not just lexicon.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>Approach</h2>
+    <p>A four-phase framework from raw tweets to ensembled prediction:</p>
+    <ul>
+      <li><strong>Data &amp; preprocessing.</strong> 53,531 tweets sourced from CrisisNLP. Cleaned URLs / hashtags / punctuation, lemmatised, converted emojis into textual representations</li>
+      <li><strong>Embeddings.</strong> Four numerical-representation techniques: BERT (transformer), XLNet (autoregressive), GloVe (co-occurrence matrix), FastText (subword)</li>
+      <li><strong>Base architectures.</strong> Simple feed-forward, CNN, and LSTM heads on top of each embedding</li>
+      <li><strong>Hybrid ensemble.</strong> The final model combined BERT + FastText + GloVe with an LSTM head and averaged predictions to capture a wider range of semantic and contextual detail</li>
+    </ul>
+    <div class="media-grid">
+      <div class="media media-screenshot"><img src="/assets/Projects/Disaster-wordcloud.png"><span class="label">Fig 01 · Word cloud of Disaster Tweets</span></div>
+      <div class="media media-screenshot"><img src="/assets/Projects/Disaster-ModelAArchitecture.png"><span class="label">Fig 02 · Ensemble Architecture</span></div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>Findings</h2>
+
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">89.12%</div>
+        <div class="desc">accuracy from the BERT + FastText + GloVe + LSTM hybrid ensemble.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">82–88%</div>
+        <div class="desc">range of individual LSTM models - the ensemble beat all of them.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">P · R · F1</div>
+        <div class="desc">balanced - important for emergency triage where false positives and misses both cost.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      Each embedding gets a different slice of the signal wrong. Ensembling
+      isn't a shortcut - it's a structural answer to disagreement.
+    </div>
+
+    <p style="margin-top: 24px;">
+      Across architectures, BERT and FastText consistently outperformed GloVe and
+      XLNet - BERT for contextual nuance, FastText for morphological detail and
+      out-of-vocabulary robustness on noisy social-media text.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>Why it matters</h2>
+    <p>
+      Accurate classification of disaster tweets contributes directly to real-time
+      emergency response and decision-making. By filtering out the irrelevant noise,
+      the model lets responders use social media for coordination and situational
+      awareness during a crisis - minutes instead of hours of triage.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">Hybrids are robust</span>
+        <p>Combining multiple embeddings via a hybrid model captured a broader semantic spectrum than any single representation could - and the ensemble was less brittle on edge cases than the strongest individual model.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">LSTM fits the medium</span>
+        <p>LSTM is well-suited to disaster tweets because it captures sequential dependencies and temporal information - essential for short, context-laden social-media text.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Context vs morphology</span>
+        <p>BERT excels at context; FastText excels at out-of-vocabulary words and morphological variants. Picking either alone leaves accuracy on the table - which is exactly what the ensemble exploits.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Filter, don't replace</span>
+        <p>The framing was always to surface candidates for a human triage operator, not to autonomously dispatch responders. The right metric mix follows from the right framing.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="air-quality.html">
+      <span class="k">← PREV · 04</span>
+      <span class="v">Air Quality</span>
+    </a>
+    <a href="nippon-color.html" class="next">
+      <span class="k">NEXT · 06</span>
+      <span class="v">Nippon Color →</span>
+    </a>
+  </nav>
+</main>
+
+<script src="../reveal.js"></script>
+</body>
+</html>

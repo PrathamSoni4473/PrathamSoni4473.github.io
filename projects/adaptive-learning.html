@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adaptive Learning - Pratham Soni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-screen-label="Project · Adaptive Learning">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 03 / Selected Work · EdTech</div>
+    <h1 class="case-title">Adaptive Learning &amp;<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">Curriculum Recommender.</em></h1>
+    <p class="case-deck">
+      A learning platform where students follow a curriculum that re-shapes itself
+      around their last quiz - and teachers see the whole class as one chart.
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Context</div><div class="v">Final-year project</div></div>
+    <div><div class="k">Year</div><div class="v">2024</div></div>
+    <div><div class="k">Stack</div><div class="v">Recommender · Web</div></div>
+    <div><div class="k">Award</div><div class="v">2nd · SAAVISHKAR 2024</div></div>
+  </div>
+</header>
+
+<main class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The problem</h2>
+    <p>
+      Most online learning is one-size-fits-all: every student gets the same module
+      sequence regardless of where they actually struggle. Teachers, meanwhile,
+      have no compact view of who's stuck on what. The platform tries to close
+      both gaps - adaptive for the student, observable for the teacher.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>Walkthrough</h2>
+    <p>
+      Demo of the student journey and the teacher dashboard, end-to-end.
+    </p>
+    <div class="media media-video">
+      <iframe src="https://www.youtube.com/embed/LvdMs6OKH_E?si=e2l9kFTDoTAE0Icc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="media-grid" style="margin-top:32px;">
+      <div class="media media-screenshot"><img src="/assets/Projects/Curriculum-subjects.png"><span class="label">Fig 01 · Student topic picker</span></div>
+      <div class="media media-screenshot"><img src="/assets/Projects/Curriculum-MCQ.png"><span class="label">Fig 02 · Student quiz interface</span></div>
+      <div class="media media-screenshot"><img src="/assets/Projects/Curriculum-SubjectScores.png"><span class="label">Fig 03 · Student subject scores</span></div>
+    </div>
+    
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>Approach</h2>
+    <ul>
+      <li>Topic-selection flow that scores prior knowledge with a pre-quiz</li>
+      <li>Recommender ranks modules by predicted gain × difficulty fit</li>
+      <li>Post-quiz updates the model so the next session adapts in-flight</li>
+      <li>Teacher view aggregates student progress into a single per-class heatmap with material-allocation controls</li>
+    </ul>
+    <div class="media media-screenshot"><img src="/assets/Projects/Curriculum-Recommendation.png"><span class="label">Fig 04 · Recommendation surface</span></div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>Outcome</h2>
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">2<span style="font-size:24px;">nd</span></div>
+        <div class="desc">place at SAAVISHKAR 2024 - Final-year project competition, NMIMS CE Dept.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">2</div>
+        <div class="desc">distinct surfaces (student + teacher) from one model - same data, different lens.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">∞</div>
+        <div class="desc">re-runs of the recommender per session - adapts after every quiz, not every term.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      The fun design problem was the teacher view - turning thousands of micro
+      interactions into one chart a teacher can read in 10 seconds before class.
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>What it taught me</h2>
+    <p>
+      "Personalisation" is mostly a UI promise - the model just ranks. Where the
+      experience either earns trust or loses it is the
+      <em>explanation</em> on the way in (why this topic next?) and the
+      <em>aggregation</em> on the way out (how is the class doing as a whole?).
+    </p>
+  </section>
+
+  <nav class="case-nav">
+    <a href="clear-waters.html">
+      <span class="k">← PREV · 02</span>
+      <span class="v">Clear Waters</span>
+    </a>
+    <a href="air-quality.html" class="next">
+      <span class="k">NEXT · 04</span>
+      <span class="v">Air Quality →</span>
+    </a>
+  </nav>
+</main>
+
+<script src="../reveal.js"></script>
+</body>
+</html>

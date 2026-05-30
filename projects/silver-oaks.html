@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Silver Oaks - Pratham Soni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-screen-label="Project · Silver Oaks">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 07 / Selected Work · Freelance</div>
+    <h1 class="case-title">Silver Oaks -<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">Luxury Store</em></h1>
+    <p class="case-deck">
+      BIS Hallmarked luxury silver brand, Mumbai. Full-stack e-commerce store built to order -
+      product catalogue, admin panel, and order flow.
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Role</div><div class="v">Freelance Full-Stack Developer</div></div>
+    <div><div class="k">Period</div><div class="v">2026 · In Development</div></div>
+    <div><div class="k">Stack</div><div class="v">PHP · MySQL · HTML/CSS · JS</div></div>
+    <div><div class="k">Live</div><div class="v"><a href="https://www.silveroaksluxury.com/" target="_blank" rel="noopener">silveroaksluxury.com</a></div></div>
+  </div>
+</header>
+
+<main class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>Context</h2>
+    <p>
+      Silver Oaks sells BIS Hallmarked pure 925 silver - jewellery, idols, home decor,
+      and bespoke gifting across five in-house collections. The founder came in with a
+      clear brand identity and a specific ask: a store they could run themselves,
+      without being locked into a platform they didn't control.
+    </p>
+    <p style="margin-top:12px;">
+      The brief covered a full product catalogue, a custom admin panel, order management,
+      and email notifications - scoped across three tiers depending on how much automation
+      made sense at launch.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>The website</h2>
+    <p>
+      The customer side was built around the five Silver Oaks collections - Me'Ora,
+      Ishwara, Silvora, Star Jewel, and World of Silver - with product listing, detail
+      pages, cart, checkout, and UPI-based order confirmation. Mobile-first throughout.
+      <br><br>NOTE: THE SITE IS STILL IN DEVELOPMENT.
+    </p>
+    <div class="carousel" aria-label="Hackathon photos">
+      <div class="carousel-frame">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="/assets/Projects/silveroaks-mainPage.png"></div>
+          <div class="carousel-slide"><img src="/assets/Projects/silveroaks-aboutPage.png"></div>
+          <div class="carousel-slide"><img src="/assets/Projects/silveroaks-productPage1.png"></div>
+          <div class="carousel-slide"><img src="/assets/Projects/silveroaks-productPage2.png"></div>
+        </div>
+        <button class="carousel-btn" data-dir="prev" aria-label="Previous photo">‹</button>
+        <button class="carousel-btn" data-dir="next" aria-label="Next photo">›</button>
+      </div>
+      <div class="carousel-meta">
+        <span class="carousel-caption"></span>
+        <span class="carousel-counter">01 / 05</span>
+      </div>
+      <div class="carousel-dots" role="tablist" aria-label="Photo navigation"></div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>The admin panel</h2>
+    <p>
+      The part most clients underestimate. Every product, brand, order, and customer is
+      manageable from a secure panel - no FTP, no database client, no calling the developer.
+    </p>
+    <ul>
+      <li>Add, edit, delete products and brands with image uploads</li>
+      <li>View and update orders, add tracking numbers manually</li>
+      <li>Customer management - view order history, mark active or inactive</li>
+      <li>CMS controls for the About and Contact pages</li>
+    </ul>
+    <p style="margin-top:12px;">
+      Scoped so the client is fully self-sufficient from day one.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>Scope and decisions</h2>
+    <p>
+      The project was quoted in three tiers - Basic (manual UPI, core store), Standard
+      (customer accounts, search, filters, SEO), and Full (Razorpay, Delhivery API,
+      coupon system). A clear scope boundary was set before development: anything
+      outside the signed tier is a separate quote, not a surprise mid-sprint.
+    </p>
+    <p style="margin-top:12px;">
+      That structure protects both sides - the client knows exactly what they're getting,
+      and the build doesn't sprawl.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">Scope is a design decision</span>
+        <p>Writing the tier breakdown before touching code forced every feature to earn its place.
+        The client knew what they were paying for at each level, which made conversations easier and
+        scope creep a non-issue.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Admin UX matters as much as the storefront</span>
+        <p>The customer-facing pages are what the client shows people. The admin panel is what they use
+        every single day. Spending time on that interface isn't overhead - it's the product.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="nippon-color.html">
+      <span class="k">← PREV · 06</span>
+      <span class="v">Nippon Color</span>
+    </a>
+    <a href="../index.html#work" class="next">
+      <span class="k">↑ ALL</span>
+      <span class="v">Back to work</span>
+    </a>
+  </nav>
+</main>
+
+<script src="../reveal.js"></script>
+<script src="../carousel.js"></script>
+</body>
+</html>
