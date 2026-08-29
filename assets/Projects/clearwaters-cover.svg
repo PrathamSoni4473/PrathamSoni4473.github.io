@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bgc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123027"/>
+      <stop offset="1" stop-color="#1A3D31"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bgc)"/>
+
+  <text x="70" y="110" font-family="Menlo, Consolas, monospace" font-size="30" letter-spacing="5" fill="#F3C878">1ST PRIZE · 750 TEAMS · 19 COUNTRIES</text>
+
+  <text x="70" y="250" font-size="96" fill="#F6F2E4">Plastic,</text>
+  <text x="70" y="355" font-size="96" fill="#EBA83B" font-style="italic">spotted.</text>
+  <text x="70" y="440" font-family="Menlo, Consolas, monospace" font-size="30" fill="#F6F2E4" fill-opacity="0.6">dual YOLOv8 · drone → dashboard · 50.3 mAP</text>
+
+  <!-- drone -->
+  <g stroke="#F6F2E4" stroke-opacity="0.75" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M940 165 l 120 60 M1060 165 l -120 60"/>
+    <circle cx="940" cy="165" r="22"/>
+    <circle cx="1060" cy="165" r="22"/>
+    <circle cx="940" cy="225" r="22"/>
+    <circle cx="1060" cy="225" r="22"/>
+  </g>
+  <path d="M1000 260 L 900 470 M1000 260 L 1110 470" stroke="#F3C878" stroke-width="2.5" stroke-dasharray="4 10" fill="none"/>
+
+  <!-- river band -->
+  <path d="M0 520 C 200 490, 350 560, 560 540 C 780 518, 900 585, 1200 545 L 1200 750 L 0 750 Z" fill="#1E4536"/>
+  <path d="M0 520 C 200 490, 350 560, 560 540 C 780 518, 900 585, 1200 545" fill="none" stroke="#F6F2E4" stroke-opacity="0.35" stroke-width="3.5"/>
+  <path d="M60 640 q 40 -14 80 0 t 80 0 M300 690 q 40 -14 80 0 t 80 0 M700 660 q 40 -14 80 0 t 80 0" stroke="#F6F2E4" stroke-opacity="0.18" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- detection boxes -->
+  <g font-family="Menlo, Consolas, monospace" font-size="24">
+    <rect x="160" y="560" width="150" height="96" rx="8" fill="none" stroke="#EBA83B" stroke-width="4"/>
+    <rect x="160" y="518" width="196" height="42" rx="8" fill="#EBA83B"/>
+    <text x="178" y="548" fill="#0C2018">PET 0.91</text>
+
+    <rect x="520" y="592" width="130" height="84" rx="8" fill="none" stroke="#EBA83B" stroke-width="4"/>
+    <rect x="520" y="550" width="196" height="42" rx="8" fill="#EBA83B"/>
+    <text x="538" y="580" fill="#0C2018">BAG 0.87</text>
+
+    <rect x="890" y="580" width="150" height="92" rx="8" fill="none" stroke="#F3C878" stroke-opacity="0.8" stroke-width="3.5"/>
+    <rect x="890" y="538" width="220" height="42" rx="8" fill="none" stroke="#F3C878" stroke-opacity="0.8" stroke-width="2.5"/>
+    <text x="906" y="568" fill="#F3C878">FOAM 0.79</text>
+  </g>
+</svg>

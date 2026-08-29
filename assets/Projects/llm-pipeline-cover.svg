@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1A3D31"/>
+      <stop offset="1" stop-color="#123027"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <text x="70" y="110" font-family="Menlo, Consolas, monospace" font-size="30" letter-spacing="5" fill="#F3C878">DATA5925 CAPSTONE · BRICK-BY-BRICK</text>
+
+  <text x="70" y="250" font-size="96" fill="#F6F2E4">Zero-shot reasoning,</text>
+  <text x="70" y="355" font-size="96" fill="#EBA83B" font-style="italic">audited.</text>
+  <text x="70" y="440" font-family="Menlo, Consolas, monospace" font-size="30" fill="#F6F2E4" fill-opacity="0.6">496 features · FAISS retrieval · 4 agents</text>
+
+  <!-- faint sensor signal -->
+  <polyline points="70,510 160,510 195,462 230,556 270,478 310,522 380,510 450,510 485,472 520,548 570,500 630,516 720,510 800,510 835,458 875,560 915,486 965,522 1050,510 1130,510"
+    fill="none" stroke="#EBA83B" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- four agent chain -->
+  <g font-family="Menlo, Consolas, monospace" text-anchor="middle">
+    <rect x="72" y="590" width="240" height="110" rx="55" fill="#EBA83B"/>
+    <text x="192" y="638" font-size="21" fill="#0C2018" opacity="0.8">AGENT 01</text>
+    <text x="192" y="672" font-size="24" fill="#0C2018">Selector</text>
+
+    <path d="M312 645 h 30" stroke="#F3C878" stroke-width="3.5"/>
+    <path d="M334 635 l 14 10 -14 10" fill="none" stroke="#F3C878" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="348" y="590" width="240" height="110" rx="55" fill="none" stroke="#EBA83B" stroke-width="3"/>
+    <text x="468" y="638" font-size="21" fill="#F6F2E4" opacity="0.75">AGENT 02</text>
+    <text x="468" y="672" font-size="24" fill="#F6F2E4">Pruner</text>
+
+    <path d="M588 645 h 30" stroke="#F3C878" stroke-width="3.5"/>
+    <path d="M610 635 l 14 10 -14 10" fill="none" stroke="#F3C878" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="624" y="590" width="240" height="110" rx="55" fill="none" stroke="#EBA83B" stroke-width="3"/>
+    <text x="744" y="638" font-size="21" fill="#F6F2E4" opacity="0.75">AGENT 03</text>
+    <text x="744" y="672" font-size="24" fill="#F6F2E4">Refiner</text>
+
+    <path d="M864 645 h 30" stroke="#F3C878" stroke-width="3.5"/>
+    <path d="M886 635 l 14 10 -14 10" fill="none" stroke="#F3C878" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="900" y="590" width="240" height="110" rx="55" fill="#F6F2E4"/>
+    <text x="1020" y="638" font-size="21" fill="#0C2018" opacity="0.8">AGENT 04</text>
+    <text x="1020" y="672" font-size="24" fill="#0C2018">Adjudicator</text>
+  </g>
+</svg>

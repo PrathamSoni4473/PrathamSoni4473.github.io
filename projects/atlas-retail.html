@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ATLAS: Retail Basket &amp; Trend Dashboard - Pratham Soni</title>
+<meta name="description" content="ATLAS: a live Streamlit dashboard linking basket-level retail behaviour to ABS macro trends, built for two user personas." />
+<meta name="theme-color" content="#0C2018" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ATLAS: Retail Basket &amp; Trend Dashboard - Pratham Soni" />
+<meta property="og:description" content="ATLAS: a live Streamlit dashboard linking basket-level retail behaviour to ABS macro trends, built for two user personas." />
+<meta property="og:image" content="https://prathamsoni4473.github.io/assets/Projects/hero1.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300..800&family=Spline+Sans+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=2">
+</head>
+<body data-screen-label="Project · ATLAS">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 05 / Selected Work · Business Intelligence</div>
+    <h1 class="case-title">From the basket<br/>to <em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">the economy.</em></h1>
+    <p class="case-deck">
+      A multi-tab Streamlit dashboard linking micro-level basket behaviour to
+      macro-level Australian retail trends - built for two very different users,
+      and still live.
+    </p>
+    <div style="margin-top: 28px;">
+      <a href="https://atlas-retail.streamlit.app" target="_blank" rel="noopener" class="btn btn-accent">Open the live dashboard
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3 6.5 9.5M12 13H3V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Course</div><div class="v">UNSW · DATA5002 (group)</div></div>
+    <div><div class="k">Year</div><div class="v">2025</div></div>
+    <div><div class="k">Tools</div><div class="v">Streamlit, Python, pandas</div></div>
+    <div><div class="k">Data</div><div class="v">ABS 8501.0 · UCI Online Retail II</div></div>
+  </div>
+</header>
+
+<main id="main" class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The brief</h2>
+    <p>
+      Retail data lives at two altitudes that rarely talk to each other: the transaction
+      log (who bought what, together, when) and the national statistics (how the whole
+      industry moved this month). ATLAS puts both in one dashboard - the UCI Online
+      Retail II transactional dataset for basket-level behaviour, and the Australian
+      Bureau of Statistics Retail Trade release (ABS 8501.0) for the macro picture.
+    </p>
+    <p>
+      We designed against two stated user personas: a <strong>retail analyst</strong>
+      who wants analytical depth, and a <strong>store manager</strong> who wants an
+      answer before their coffee goes cold. Every tab had to serve both without
+      patronising either.
+    </p>
+    <div class="media"><img src="../assets/Projects/atlas-cover.svg" alt="ATLAS: monthly turnover trend with seasonal December peaks, above a basket-level dot grid" loading="lazy" decoding="async"></div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>The build</h2>
+    <ul>
+      <li>Prepared and analysed ABS Retail Trade data across <strong>six retail industries</strong>, producing monthly turnover trends, seasonal decomposition and industry comparison views</li>
+      <li>Joined it with basket-level analysis of the UCI Online Retail II dataset - so a spike in the macro series can be interrogated down at product level</li>
+      <li>Documented the granularity mismatch between product-level transactions and industry-level aggregates <em>explicitly in the dashboard</em>, rather than letting users draw links the data can't support</li>
+      <li>Shipped it as a multi-tab Streamlit app, live at atlas-retail.streamlit.app</li>
+    </ul>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>The save</h2>
+    <p>
+      Midway through, a reviewer flagged that our turnover figures looked off. Instead of
+      patching the chart, I cross-verified every calculated figure against official ABS
+      releases and published economic reports - and found a scaling error in how turnover
+      had been ingested.
+    </p>
+
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">6</div>
+        <div class="desc">ABS retail industries covered with trend, seasonal and comparison views.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">2</div>
+        <div class="desc">user personas the design was tested against - analyst and store manager.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">1</div>
+        <div class="desc">scaling error caught and corrected by verifying against official ABS releases.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      A dashboard is a promise that its numbers are right. Catching the scaling error -
+      and proving the corrected figures against the official releases - restored
+      confidence in every monthly trend, seasonal peak and year-on-year growth rate
+      downstream of it.
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>Limitations</h2>
+    <div class="limit-grid">
+      <div class="limit-card">
+        <span class="k">⚠ GRANULARITY</span>
+        <h4>Two altitudes, one join</h4>
+        <p>Product-level transactions and industry-level aggregates don't share a common key - the linkage is contextual, not relational, and the dashboard says so on the tin.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ SOURCE</span>
+        <h4>The basket data isn't Australian</h4>
+        <p>UCI Online Retail II records a UK-based retailer. It demonstrates basket-analysis technique alongside Australian macro trends; it doesn't claim the two describe the same shoppers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">About verification</span>
+        <p>Cross-checking derived figures against an official source is cheap; shipping a wrong number is not. "Looks right" is not a validation strategy.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About audiences</span>
+        <p>Designing for a named persona forces real trade-offs. "Analytical depth vs readability" stops being abstract when you can picture the store manager squinting at your chart.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About honesty in BI</span>
+        <p>Stating what a dashboard <em>can't</em> tell you - in the interface itself - builds more trust than any amount of polish.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About teams</span>
+        <p>Group analytics work runs on review culture. The scaling error was caught because someone felt safe saying "this looks wrong" - and fixing it publicly made the team's output stronger.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="../index.html#work">
+      <span class="k">← BACK</span>
+      <span class="v">All work</span>
+    </a>
+    <a href="adaptive-learning.html" class="next">
+      <span class="k">NEXT · 06</span>
+      <span class="v">Adaptive Learning →</span>
+    </a>
+  </nav>
+</main>
+
+
+<footer class="footer footer-slim">
+  <div class="shell footer-slim-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="footer-slim-links">
+      <a href="mailto:prathamsoni1103@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/prathamsoni1103/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../uploads/Pratham_Soni_CV.pdf" download>Download CV</a>
+      <a href="../index.html#work">All work</a>
+    </div>
+    <span class="mono" style="color: var(--milk-3);">&copy; 2026 &middot; Made by hand, in Sydney</span>
+  </div>
+</footer>
+
+<script src="../reveal.js?v=2"></script>
+</body>
+</html>

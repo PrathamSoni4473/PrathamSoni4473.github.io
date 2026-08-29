@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coral Bleaching Severity Prediction - Pratham Soni</title>
+<meta name="description" content="Predicting coral-bleaching severity across four decades of global reef data - and proof that reef structure beats temperature." />
+<meta name="theme-color" content="#0C2018" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Coral Bleaching Severity Prediction - Pratham Soni" />
+<meta property="og:description" content="Predicting coral-bleaching severity across four decades of global reef data - and proof that reef structure beats temperature." />
+<meta property="og:image" content="https://prathamsoni4473.github.io/assets/Projects/hero1.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300..800&family=Spline+Sans+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=2">
+</head>
+<body data-screen-label="Project · Coral Bleaching">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 04 / Selected Work · Machine Learning</div>
+    <h1 class="case-title">Which reefs bleach<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">worst</em> - and why?</h1>
+    <p class="case-deck">
+      An end-to-end multiclass pipeline predicting coral-bleaching severity across four
+      decades of global reef data - and an ablation study showing that reef
+      <em>structure</em>, not just temperature, carries most of the predictive signal.
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Course</div><div class="v">UNSW · MATH3856</div></div>
+    <div><div class="k">Year</div><div class="v">2025</div></div>
+    <div><div class="k">Tools</div><div class="v">scikit-learn, XGBoost, TensorFlow/Keras</div></div>
+    <div><div class="k">Role</div><div class="v">End-to-end ML pipeline</div></div>
+  </div>
+</header>
+
+<main id="main" class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The problem</h2>
+    <p>
+      Coral bleaching events are getting more frequent and more severe, but monitoring
+      capacity is finite - reef managers need to know <em>which</em> reefs are most at
+      risk before committing survey resources. The harmonised BCO-DMO global reef
+      dataset spans seven monitoring programs from 1980 to 2020, with bleaching severity
+      recorded in four ordinal classes.
+    </p>
+    <p>
+      The task: predict that severity class from environmental and structural reef
+      features, with special attention to the actionable early-warning class - the one a
+      manager would actually act on.
+    </p>
+    <div class="media"><img src="../assets/Projects/coral-cover.svg" alt="Coral bleaching severity scale over the BCO-DMO reef dataset" loading="lazy" decoding="async"></div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>Data discipline first</h2>
+    <p>
+      Seven monitoring programs merged into one dataset means seven different collection
+      habits merged into one set of biases. The cleaning stage did the heavy lifting:
+    </p>
+    <ul>
+      <li>Dropped columns with over 50% missing data, and <strong>removed</strong> incomplete rows rather than imputing them - protecting label integrity at the cost of volume</li>
+      <li>Eliminated 11,000 exact duplicate records - about 37% of the raw data - that would otherwise leak between train and test folds</li>
+      <li>Landed on a clean 21,418-observation, 20-feature dataset</li>
+      <li>Maintained two parallel encodings: label encoding for tree models, one-hot (expanding to roughly 132 features) for neural networks - matching each model family's representational assumptions</li>
+    </ul>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>Five models, one fair fight</h2>
+    <p>
+      XGBoost, Random Forest, Logistic Regression, and shallow and deep MLPs - all
+      trained under stratified k-fold cross-validation with up to 100 runs per
+      configuration, and features scaled <em>within each fold</em> to prevent leakage.
+      Class imbalance was handled methodically, not reflexively:
+    </p>
+    <ul>
+      <li>SMOTE applied inside the training split only - and tested with and without, to isolate its actual effect</li>
+      <li>Focal loss used for the neural networks instead of oversampling</li>
+      <li>Both quantified: SMOTE <strong>degraded</strong> Logistic Regression by 12.6%, and focal loss cut MLP accuracy by up to 16% - imbalance fixes are not free</li>
+    </ul>
+
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">0.927</div>
+        <div class="desc">ROC-AUC for the winning model - XGBoost with SMOTE.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">0.736</div>
+        <div class="desc">macro PR-AUC across all four severity classes.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">0.873</div>
+        <div class="desc">PR-AUC on the actionable early-warning class - the number that matters operationally.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      Random Forest finished a near-equal second with no resampling at all - ensemble
+      averaging alone handles moderate imbalance better than most fixes.
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>The ablation that mattered</h2>
+    <p>
+      Temperature is the intuitive villain in bleaching stories. The ablation study said
+      otherwise: reef-structural features - exposure, depth, turbidity - contributed
+      roughly <strong>70% of the performance gain</strong> over temperature-only models.
+    </p>
+    <p>
+      That's a result with direct scientific and operational meaning: two reefs in the
+      same thermal regime can face very different risk, and monitoring programs that
+      only track temperature are leaving most of the predictive signal on the table.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>From notebook to operations</h2>
+    <p>
+      A model that lives in a notebook protects zero reefs, so the project closed with a
+      deployment design:
+    </p>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <span class="num">STEP 01</span>
+        <div>
+          <h4>Weekly ingestion</h4>
+          <p>Sensor CSVs land on a schedule and are validated against the training schema.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 02</span>
+        <div>
+          <h4>Scoring</h4>
+          <p>XGBoost scores each reef on a web server and emits a binary risk flag - severity collapsed to the decision a manager actually makes.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 03</span>
+        <div>
+          <h4>Field validation</h4>
+          <p>Survey teams confirm or reject flags, and their feedback flows back as new labelled data.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 04</span>
+        <div>
+          <h4>Periodic retraining</h4>
+          <p>The model refreshes on the growing dataset. XGBoost earns the production slot on speed, interpretable feature importance, and reliability - not just AUC.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">06</span>Limitations</h2>
+    <div class="limit-grid">
+      <div class="limit-card">
+        <span class="k">⚠ HARMONISATION</span>
+        <h4>Seven programs, seven biases</h4>
+        <p>Monitoring programs differ in method, geography and effort. Harmonisation aligns the columns; it can't fully align the collection biases underneath them.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ COVERAGE</span>
+        <h4>Removing rows trades volume for integrity</h4>
+        <p>Dropping incomplete rows instead of imputing protects labels but may under-represent the sparse regions and programs that report least completely.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ ORDINALITY</span>
+        <h4>Ordinal classes, nominal loss</h4>
+        <p>Severity classes are ordered, but multiclass training treats a Severe-vs-None error the same as Severe-vs-Moderate. The PR-AUC on the early-warning class is the honest headline for that reason.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ CAUSATION</span>
+        <h4>Predictive ≠ causal</h4>
+        <p>Structure features carrying 70% of the signal makes them excellent predictors - it does not make turbidity a lever you can pull to stop bleaching.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">07</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">About cleaning</span>
+        <p>37% of the raw data was exact duplicates. The most consequential modelling decision in the whole project happened before any model existed.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About imbalance</span>
+        <p>Test the fix, not the folklore. SMOTE helped trees and hurt logistic regression by double digits - the same intervention, opposite effects.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About ablations</span>
+        <p>The 70%-structural finding turned a leaderboard exercise into a scientific claim. Ablations are how a model earns the right to an opinion.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About production</span>
+        <p>Choosing the deployment model on speed, interpretability and reliability - with AUC as only one input - is the difference between a submission and a system.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="../index.html#work">
+      <span class="k">← BACK</span>
+      <span class="v">All work</span>
+    </a>
+    <a href="atlas-retail.html" class="next">
+      <span class="k">NEXT · 05</span>
+      <span class="v">ATLAS Retail Dashboard →</span>
+    </a>
+  </nav>
+</main>
+
+
+<footer class="footer footer-slim">
+  <div class="shell footer-slim-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="footer-slim-links">
+      <a href="mailto:prathamsoni1103@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/prathamsoni1103/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../uploads/Pratham_Soni_CV.pdf" download>Download CV</a>
+      <a href="../index.html#work">All work</a>
+    </div>
+    <span class="mono" style="color: var(--milk-3);">&copy; 2026 &middot; Made by hand, in Sydney</span>
+  </div>
+</footer>
+
+<script src="../reveal.js?v=2"></script>
+</body>
+</html>

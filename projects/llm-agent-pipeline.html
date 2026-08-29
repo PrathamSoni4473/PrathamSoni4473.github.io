@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LLM Agent Pipeline for Time-Series Classification - Pratham Soni</title>
+<meta name="description" content="Master's capstone: a training-free LLM agent pipeline for building time-series classification, evaluated honestly against the winning CatBoost baseline." />
+<meta name="theme-color" content="#0C2018" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="LLM Agent Pipeline for Time-Series Classification - Pratham Soni" />
+<meta property="og:description" content="Master's capstone: a training-free LLM agent pipeline for building time-series classification, evaluated honestly against the winning CatBoost baseline." />
+<meta property="og:image" content="https://prathamsoni4473.github.io/assets/Projects/hero1.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300..800&family=Spline+Sans+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=2">
+</head>
+<body data-screen-label="Project · LLM Agent Pipeline">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="nav-links">
+      <a href="../index.html#work" class="active">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../achievements.html">Achievements</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="reveal">
+    <div class="case-eyebrow">§ 01 / Selected Work · Machine Learning Research</div>
+    <h1 class="case-title">LLM agents vs.<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">building telemetry.</em></h1>
+    <p class="case-deck">
+      Can a training-free, evidence-grounded LLM agent framework classify time-series
+      it was never built for? My Master's capstone adapted ZARA - a framework designed
+      for human activity recognition - to Brick building-automation metadata, and
+      measured exactly where zero-shot reasoning holds up and where it breaks.
+    </p>
+  </div>
+
+  <div class="case-meta reveal delay-1">
+    <div><div class="k">Course</div><div class="v">UNSW · DATA5925 Capstone</div></div>
+    <div><div class="k">Year</div><div class="v">2026</div></div>
+    <div><div class="k">Tools</div><div class="v">Python, XGBoost, FAISS, LLM agents</div></div>
+    <div><div class="k">Role</div><div class="v">Researcher &amp; pipeline builder</div></div>
+  </div>
+</header>
+
+<main id="main" class="shell-narrow">
+
+  <section class="case-section reveal">
+    <h2><span class="num">01</span>The question</h2>
+    <p>
+      Every sensor in a smart building - temperature, alarm, setpoint, command - needs a
+      label before its data is useful, and labelling them by hand is slow, expensive
+      expert work. The Brick-by-Brick 2024 competition framed this as a classification
+      problem over raw time-series. The winning solutions were trained ensembles.
+    </p>
+    <p>
+      My capstone asked a different question: ZARA, a <em>training-free</em> LLM agent
+      framework, had shown that evidence-grounded agentic reasoning works for human
+      activity recognition. Does that transfer to a completely different time-series
+      domain - without any task-specific training?
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">02</span>The pipeline</h2>
+    <p>
+      I built the full system end to end - every stage below feeds evidence, not vibes,
+      to the agents downstream.
+    </p>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <span class="num">STEP 01</span>
+        <div>
+          <h4>Feature engineering</h4>
+          <p>496 engineered features per daily signal - the statistical fingerprint each agent reasons over.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 02</span>
+        <div>
+          <h4>Knowledge base</h4>
+          <p>A 4,095-entry pairwise XGBoost feature-importance knowledge base spanning 91 composite classes, telling the agents <em>which features matter for which distinction</em>.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 03</span>
+        <div>
+          <h4>Retrieval</h4>
+          <p>Class-conditional FAISS retrieval over Mantis-8M time-series embeddings surfaces the most similar labelled examples as candidate classes.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="num">STEP 04</span>
+        <div>
+          <h4>Four-agent decision chain</h4>
+          <p>Feature Selector → Candidate Pruner → Refiner → Adjudicator, each with schema-constrained JSON validation so no agent can hand-wave its output format.</p>
+        </div>
+      </div>
+    </div>
+    <div class="media"><img src="../assets/Projects/llm-pipeline-cover.svg" alt="Architecture: sensor signal, FAISS retrieval, and the four-agent decision chain" loading="lazy" decoding="async"></div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">03</span>Results - honestly reported</h2>
+
+    <div class="findings">
+      <div class="finding-card">
+        <div class="stat">86.0%</div>
+        <div class="desc">of queries had the true class in the retrieval top ten - the evidence pipeline works.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">36.0%</div>
+        <div class="desc">full-pipeline accuracy (macro F1 0.395) on a held-out partition of the official 2024 test set.</div>
+      </div>
+      <div class="finding-card">
+        <div class="stat">57.0%</div>
+        <div class="desc">accuracy for the competition's winning CatBoost ensemble - independently reproduced and verified for a fair baseline.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      The interesting result isn't the gap - it's knowing exactly <em>where</em> the gap
+      comes from. Retrieval was fine. The reasoning stage wasn't.
+    </div>
+
+    <p>
+      A 21-point shortfall against a trained ensemble could mean anything. So rather than
+      stopping at the headline number, I ran controlled ablations to localise the failure.
+    </p>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">04</span>The diagnosis</h2>
+    <ul>
+      <li><strong>Pruning was a no-op.</strong> Disabling the Candidate Pruner agent left accuracy unchanged - one of the four agents was contributing nothing measurable</li>
+      <li><strong>The Adjudicator anchors on rank.</strong> A rank-anchoring test showed the final agent defaulted to the top-retrieved candidate 26 to 47 points above chance, and overrode a deliberately misleading rank in only 15-48% of cases. The "reasoning" was substantially rank-following</li>
+      <li><strong>Both paradigms fail the same way.</strong> The trained CatBoost model and the zero-shot pipeline converge independently on the same Status/Alarm/Command confusion cluster - evidence the ceiling lies in Brick's functional-role labels themselves, not in either classification paradigm</li>
+    </ul>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">05</span>Limitations</h2>
+    <p style="margin-bottom: 16px;">
+      A negative-leaning result is only worth publishing if its caveats are named as
+      carefully as its claims.
+    </p>
+    <div class="limit-grid">
+      <div class="limit-card">
+        <span class="k">⚠ PARTITION</span>
+        <h4>Held-out partition, not the full set</h4>
+        <p>Evaluation ran on a held-out partition of the official test set, so absolute numbers may shift slightly at full scale - though the baseline was evaluated on the identical partition.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ DETERMINISM</span>
+        <h4>LLM outputs vary between runs</h4>
+        <p>Schema-constrained JSON keeps the format stable, but agent decisions are not perfectly reproducible run-to-run the way a fitted tree ensemble is.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ TRANSFER</span>
+        <h4>One domain pair tested</h4>
+        <p>HAR → building telemetry is a single transfer. The conclusion "reasoning is the bottleneck" is demonstrated here, not proven for agentic time-series classification in general.</p>
+      </div>
+      <div class="limit-card">
+        <span class="k">⚠ TAXONOMY</span>
+        <h4>The labels themselves are noisy</h4>
+        <p>Brick's functional-role labels blur Status, Alarm and Command. Both model families hitting the same wall suggests part of the "error" is irreducible label ambiguity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section reveal">
+    <h2><span class="num">06</span>What it taught me</h2>
+    <div class="reflect">
+      <div class="reflect-block">
+        <span class="k">As a researcher</span>
+        <p>A rigorous negative result beats an inflated positive one. Reproducing the winning baseline myself - rather than quoting the leaderboard - is what made the comparison honest.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">Technically</span>
+        <p>How to build retrieval-augmented agent systems end to end: embedding stores, class-conditional FAISS indexes, feature-importance knowledge bases, and schema-validated agent chains.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About ablations</span>
+        <p>"It underperforms" is a headline; "the Adjudicator follows retrieval rank 26-47 points above chance" is a finding. Controlled ablations turn a gap into an explanation.</p>
+      </div>
+      <div class="reflect-block">
+        <span class="k">About agents</span>
+        <p>Adding agents isn't adding intelligence. One of four agents did nothing measurable - a lesson worth its weight as the industry reaches for agentic everything.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav">
+    <a href="../index.html#work">
+      <span class="k">← BACK</span>
+      <span class="v">All work</span>
+    </a>
+    <a href="beer-portfolio.html" class="next">
+      <span class="k">NEXT · 02</span>
+      <span class="v">Beer Portfolio →</span>
+    </a>
+  </nav>
+</main>
+
+
+<footer class="footer footer-slim">
+  <div class="shell footer-slim-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="footer-slim-links">
+      <a href="mailto:prathamsoni1103@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/prathamsoni1103/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../uploads/Pratham_Soni_CV.pdf" download>Download CV</a>
+      <a href="../index.html#work">All work</a>
+    </div>
+    <span class="mono" style="color: var(--milk-3);">&copy; 2026 &middot; Made by hand, in Sydney</span>
+  </div>
+</footer>
+
+<script src="../reveal.js?v=2"></script>
+</body>
+</html>

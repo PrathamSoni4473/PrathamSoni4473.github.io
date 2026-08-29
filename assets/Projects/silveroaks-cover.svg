@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bgs" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1A3D31"/>
+      <stop offset="1" stop-color="#123027"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bgs)"/>
+
+  <text x="70" y="110" font-family="Menlo, Consolas, monospace" font-size="28" letter-spacing="5" fill="#F3C878">FREELANCE BUILD · SILVEROAKSLUXURY.COM</text>
+
+  <text x="70" y="250" font-size="96" fill="#F6F2E4">Built, tested,</text>
+  <text x="70" y="355" font-size="96" fill="#EBA83B" font-style="italic">handed over.</text>
+  <text x="70" y="440" font-family="Menlo, Consolas, monospace" font-size="30" fill="#F6F2E4" fill-opacity="0.6">5 collections · UPI checkout · self-service admin</text>
+
+  <!-- checkout flow -->
+  <g font-family="Menlo, Consolas, monospace" font-size="24" text-anchor="middle">
+    <!-- cart -->
+    <circle cx="240" cy="590" r="52" fill="none" stroke="#F6F2E4" stroke-opacity="0.6" stroke-width="3.5"/>
+    <g stroke="#F6F2E4" stroke-opacity="0.85" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M216 572 h 10 l 8 30 h 30 l 8 -22 h -40"/>
+      <circle cx="238" cy="614" r="4.5"/>
+      <circle cx="262" cy="614" r="4.5"/>
+    </g>
+    <text x="240" y="690" fill="#F6F2E4" fill-opacity="0.65">CART</text>
+
+    <line x1="292" y1="590" x2="498" y2="590" stroke="#F6F2E4" stroke-opacity="0.4" stroke-width="3.5"/>
+
+    <!-- pay -->
+    <circle cx="550" cy="590" r="52" fill="none" stroke="#F3C878" stroke-opacity="0.8" stroke-width="3.5"/>
+    <g stroke="#F3C878" stroke-width="4" fill="none" stroke-linecap="round">
+      <rect x="524" y="572" width="52" height="36" rx="6"/>
+      <line x1="524" y1="584" x2="576" y2="584"/>
+    </g>
+    <text x="550" y="690" fill="#F3C878">PAY · UPI</text>
+
+    <line x1="602" y1="590" x2="808" y2="590" stroke="#F3C878" stroke-opacity="0.6" stroke-width="3.5"/>
+
+    <!-- confirmed -->
+    <circle cx="860" cy="590" r="52" fill="#EBA83B"/>
+    <path d="M836 590 l 16 16 32 -34" fill="none" stroke="#0C2018" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="860" y="690" fill="#EBA83B">CONFIRMED</text>
+
+    <!-- handover note -->
+    <text x="1060" y="560" fill="#F6F2E4" fill-opacity="0.55">client</text>
+    <text x="1060" y="592" fill="#F6F2E4" fill-opacity="0.55">runs it</text>
+    <text x="1060" y="624" fill="#F6F2E4" fill-opacity="0.55">solo ✓</text>
+  </g>
+</svg>

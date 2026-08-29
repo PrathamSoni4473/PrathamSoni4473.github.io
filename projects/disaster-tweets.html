@@ -4,14 +4,23 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Disaster Tweet Classification - Pratham Soni</title>
+<meta name="description" content="IEEE-published deep-learning ensemble classifying 53,531 crisis tweets - separating eyewitness signal from sarcasm and noise." />
+<meta name="theme-color" content="#0C2018" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Disaster Tweet Classification - Pratham Soni" />
+<meta property="og:description" content="IEEE-published deep-learning ensemble classifying 53,531 crisis tweets - separating eyewitness signal from sarcasm and noise." />
+<meta property="og:image" content="https://prathamsoni4473.github.io/assets/Projects/hero1.png" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300..800&family=Spline+Sans+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=2">
 </head>
 <body data-screen-label="Project · Disaster Tweets">
+<a class="skip-link" href="#main">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" aria-label="Primary">
   <div class="nav-inner">
     <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
     <div class="nav-links">
@@ -25,7 +34,7 @@
 
 <header class="shell case-hero">
   <div class="reveal">
-    <div class="case-eyebrow">§ 05 / Selected Work · NLP &amp; Deep Learning</div>
+    <div class="case-eyebrow">§ 08 / Selected Work · NLP &amp; Deep Learning</div>
     <h1 class="case-title">Disaster Tweet<br/><em class="serif italic" style="color:var(--terracotta-deep); font-weight:400;">Classification.</em></h1>
     <p class="case-deck">
       53,531 tweets, four embedding spaces, three architectures - and a hybrid ensemble
@@ -44,7 +53,7 @@
   </div>
 </header>
 
-<main class="shell-narrow">
+<main id="main" class="shell-narrow">
 
   <section class="case-section reveal">
     <h2><span class="num">01</span>The problem</h2>
@@ -67,8 +76,8 @@
       <li><strong>Hybrid ensemble.</strong> The final model combined BERT + FastText + GloVe with an LSTM head and averaged predictions to capture a wider range of semantic and contextual detail</li>
     </ul>
     <div class="media-grid">
-      <div class="media media-screenshot"><img src="/assets/Projects/Disaster-wordcloud.png"><span class="label">Fig 01 · Word cloud of Disaster Tweets</span></div>
-      <div class="media media-screenshot"><img src="/assets/Projects/Disaster-ModelAArchitecture.png"><span class="label">Fig 02 · Ensemble Architecture</span></div>
+      <div class="media media-screenshot"><img src="/assets/Projects/Disaster-wordcloud.png" loading="lazy" decoding="async" alt="Word cloud of disaster tweet vocabulary"><span class="label">Fig 01 · Word cloud of Disaster Tweets</span></div>
+      <div class="media media-screenshot"><img src="/assets/Projects/Disaster-ModelAArchitecture.png" loading="lazy" decoding="async" alt="Hybrid ensemble model architecture diagram"><span class="label">Fig 02 · Ensemble Architecture</span></div>
     </div>
   </section>
 
@@ -136,16 +145,30 @@
 
   <nav class="case-nav">
     <a href="air-quality.html">
-      <span class="k">← PREV · 04</span>
+      <span class="k">← PREV · 07</span>
       <span class="v">Air Quality</span>
     </a>
     <a href="nippon-color.html" class="next">
-      <span class="k">NEXT · 06</span>
+      <span class="k">NEXT · 09</span>
       <span class="v">Nippon Color →</span>
     </a>
   </nav>
 </main>
 
-<script src="../reveal.js"></script>
+
+<footer class="footer footer-slim">
+  <div class="shell footer-slim-inner">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Pratham Soni</a>
+    <div class="footer-slim-links">
+      <a href="mailto:prathamsoni1103@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/prathamsoni1103/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../uploads/Pratham_Soni_CV.pdf" download>Download CV</a>
+      <a href="../index.html#work">All work</a>
+    </div>
+    <span class="mono" style="color: var(--milk-3);">&copy; 2026 &middot; Made by hand, in Sydney</span>
+  </div>
+</footer>
+
+<script src="../reveal.js?v=2"></script>
 </body>
 </html>

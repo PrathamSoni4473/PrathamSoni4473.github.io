@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" font-family="Georgia, serif">
+  <defs>
+    <linearGradient id="bga" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1A3D31"/>
+      <stop offset="1" stop-color="#123027"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bga)"/>
+
+  <text x="70" y="110" font-family="Menlo, Consolas, monospace" font-size="28" letter-spacing="5" fill="#F3C878">FINAL-YEAR PROJECT · 2ND, SAAVISHKAR 2024</text>
+
+  <text x="70" y="250" font-size="96" fill="#F6F2E4">The syllabus</text>
+  <text x="70" y="355" font-size="96" fill="#EBA83B" font-style="italic">adapts.</text>
+  <text x="70" y="440" font-family="Menlo, Consolas, monospace" font-size="30" fill="#F6F2E4" fill-opacity="0.6">pre-quiz scoring · ranked modules · teacher heatmap</text>
+
+  <!-- adaptive path -->
+  <g font-family="Menlo, Consolas, monospace" text-anchor="middle">
+    <!-- M1 -->
+    <circle cx="140" cy="610" r="40" fill="none" stroke="#F6F2E4" stroke-opacity="0.6" stroke-width="3.5"/>
+    <text x="140" y="621" font-size="28" fill="#F6F2E4" fill-opacity="0.8">01</text>
+    <line x1="180" y1="610" x2="285" y2="610" stroke="#F6F2E4" stroke-opacity="0.45" stroke-width="3.5"/>
+    <!-- M2 -->
+    <circle cx="325" cy="610" r="40" fill="none" stroke="#F6F2E4" stroke-opacity="0.6" stroke-width="3.5"/>
+    <text x="325" y="621" font-size="28" fill="#F6F2E4" fill-opacity="0.8">02</text>
+    <line x1="365" y1="610" x2="465" y2="610" stroke="#F6F2E4" stroke-opacity="0.45" stroke-width="3.5"/>
+    <!-- quiz diamond -->
+    <rect x="470" y="555" width="110" height="110" rx="16" transform="rotate(45 525 610)" fill="#EBA83B"/>
+    <text x="525" y="620" font-size="26" fill="#0C2018">QUIZ</text>
+    <!-- branch up: chosen -->
+    <path d="M595 585 C 660 540, 700 525, 770 522" fill="none" stroke="#EBA83B" stroke-width="4.5"/>
+    <path d="M756 512 l 18 9 -16 12" fill="none" stroke="#EBA83B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="830" cy="520" r="40" fill="#EBA83B"/>
+    <text x="830" y="531" font-size="28" fill="#0C2018">04</text>
+    <line x1="870" y1="520" x2="975" y2="520" stroke="#EBA83B" stroke-width="4.5"/>
+    <circle cx="1015" cy="520" r="40" fill="#EBA83B"/>
+    <text x="1015" y="531" font-size="28" fill="#0C2018">06</text>
+    <!-- branch down: skipped -->
+    <path d="M595 635 C 660 680, 700 695, 770 698" fill="none" stroke="#F6F2E4" stroke-opacity="0.35" stroke-width="3.5" stroke-dasharray="7 9"/>
+    <circle cx="830" cy="700" r="40" fill="none" stroke="#F6F2E4" stroke-opacity="0.35" stroke-width="3.5" stroke-dasharray="7 9"/>
+    <text x="830" y="711" font-size="28" fill="#F6F2E4" fill-opacity="0.45">03</text>
+    <text x="1015" y="460" font-size="24" fill="#F3C878">predicted gain ↑</text>
+  </g>
+</svg>
